@@ -186,7 +186,7 @@ export class ImportContext {
 		}
 
 		let prog = (100 * current / total).toFixed(1)
-		console.log('Current progress:', prog + '% | '+ prog);
+		console.log('Current progress:', prog + '%');
 		if(prog == '100.0') {
 			console.timeEnd('Importer Status');
 		 }
