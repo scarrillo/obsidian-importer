@@ -177,8 +177,19 @@ export class ImportContext {
 	 * @param total
 	 */
 	reportProgress(current: number, total: number) {
-		if (total <= 0) return;
-		console.log('Current progress:', (100 * current / total).toFixed(1) + '%');
+		if (total <= 0) {
+			return;
+		}
+	
+		if(current == 1) {
+			console.time('Importer Status');
+		}
+
+		let prog = (100 * current / total).toFixed(1)
+		console.log('Current progress:', prog + '% | '+ prog);
+		if(prog == '100.0') {
+			console.timeEnd('Importer Status');
+		 }
 		this.remainingCountEl.setText((total - current).toString());
 		this.importedCountEl.setText(current.toString());
 		this.progressBarInnerEl.style.width = (100 * current / total).toFixed(1) + '%';

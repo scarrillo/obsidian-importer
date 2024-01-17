@@ -356,7 +356,6 @@ export class AppleNotesImporter extends FormatImporter {
 			const attachmentFolder = await this.getAttachmentFolder(this.resolvedFiles[row.ZNOTE]);
 			//@ts-ignore
 			const outPath = this.app.vault.getAvailablePath(`${attachmentFolder}/${outName}`, outExt);
-			
 			file = await this.vault.createBinary(
 				outPath, binary,
 				{ ctime: this.decodeTime(row.ZCREATIONDATE), mtime: this.decodeTime(row.ZMODIFICATIONDATE) }
